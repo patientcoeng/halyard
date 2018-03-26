@@ -1,0 +1,10 @@
+language: go
+go:
+  - "1.9"
+  - "1.10"
+
+before_install:
+  - "go get -u github.com/kardianos/govendor"
+
+install:
+  - "govendor sync"
