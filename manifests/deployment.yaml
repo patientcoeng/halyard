@@ -41,7 +41,7 @@ data:
           "namespace": "default",
           "backendEndpoints": {
             "prometheus": "https://MY_PROMETHEUS_SERVICE"
-          }
+          },
           "alertConfig": {
               "slack": {
                 "webhookURL": "https://hooks.slack.com/services/YOUR_SERVICE_ID",

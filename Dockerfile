@@ -7,7 +7,8 @@
 FROM golang:1.9-alpine3.7 as gobuilder
 WORKDIR /go/src/github.com/patientcoeng/halyard
 COPY . .
-RUN go get -u github.com/kardianos/govendor && \
+RUN apk update && apk add git && \
+    go get -u github.com/kardianos/govendor && \
     govendor sync && \
     go build .
 

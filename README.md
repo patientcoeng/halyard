@@ -31,7 +31,7 @@ Halyard expects a JSON-encoded configuration file to be present in the same dire
       "namespace": "default",
       "backendEndpoints": {
         "prometheus": "https://my-prometheus-server"
-      }
+      },
       "alertConfig": {
           "slack": {
             "webhookURL": "https://hooks.slack.com/services/YOUR_SERVICE_ID",
