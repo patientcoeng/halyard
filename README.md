@@ -1,4 +1,5 @@
 # Halyard
+[![Build Status](https://travis-ci.org/patientcoeng/halyard.svg?branch=master)](https://travis-ci.org/patientcoeng/halyard)
 
 Halyard is a tool for horizontal autoscaling with Kubernetes (K8S). It leverages a metrics backend to determine the current value of a metric, and linearly scales the number of pods so the metric approaches a given target value. This enables dynamic scaling in response to changes in load.
 
