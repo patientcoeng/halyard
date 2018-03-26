@@ -1,5 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
+metadata:
+  name: halyard
 spec:
   replicas: 1
   selector:
@@ -30,6 +32,8 @@ spec:
 ---
 apiVersion: v1
 kind: ConfigMap
+metadata:
+  name: halyard-config
 data:
   Config.json: |-
     {

@@ -5,7 +5,7 @@
 #############################################
 
 FROM golang:1.9 as gobuilder
-WORKDIR /src/go/halyard
+WORKDIR /src/go/github.com/patientcoeng/halyard
 COPY . .
 RUN go get -u github.com/kardianos/govendor && \
     govendor sync && \
