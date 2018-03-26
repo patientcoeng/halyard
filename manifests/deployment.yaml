@@ -1,0 +1,47 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: halyard
+  template:
+    metadata:
+      labels:
+        app: halyard
+    spec:
+      containers:
+      - name: halyard
+        image: patientcoeng/halyard
+        resources:
+          limits:
+            cpu: 100m
+            memory: 32Mi
+          requests:
+            cpu: 100m
+            memory: 32Mi
+        volumeMounts:
+        - mountPath: /config
+          name: halyard-config
+      volumes:
+      - name: halyard-config
+        configMap:
+          name: halyard-config
+---
+apiVersion: v1
+kind: ConfigMap
+data:
+  Config.json: |-
+    {
+          "period": 30,
+          "namespace": "default",
+          "backendEndpoints": {
+            "prometheus": "https://MY_PROMETHEUS_SERVICE"
+          }
+          "alertConfig": {
+              "slack": {
+                "webhookURL": "https://hooks.slack.com/services/YOUR_SERVICE_ID",
+                "channel": "#YOUR_CHANNEL"
+              }
+          }
+    }
