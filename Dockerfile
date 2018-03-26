@@ -4,7 +4,7 @@
 # horizontal pod autoscaling
 #############################################
 
-FROM golang:1.9 as gobuilder
+FROM golang:1.9-alpine3.7 as gobuilder
 WORKDIR /go/src/github.com/patientcoeng/halyard
 COPY . .
 RUN go get -u github.com/kardianos/govendor && \
