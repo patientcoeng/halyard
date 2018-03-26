@@ -5,13 +5,13 @@
 #############################################
 
 FROM golang:1.9 as gobuilder
-WORKDIR /src/go/github.com/patientcoeng/halyard
+WORKDIR /go/src/github.com/patientcoeng/halyard
 COPY . .
 RUN go get -u github.com/kardianos/govendor && \
     govendor sync && \
     go build .
 
 FROM alpine:3.7
-COPY --from=gobuilder /src/go/halyard/halyard /halyard
+COPY --from=gobuilder /go/src/github.com/patientcoeng/halyard/halyard /halyard
 COPY svcinit.sh /svcinit.sh
 ENTRYPOINT [ "/svcinit.sh" ]
